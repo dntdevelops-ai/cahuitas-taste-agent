@@ -1,0 +1,26 @@
+{
+  "name": "cahuitas-taste-booking-agent",
+  "version": "1.0.0",
+  "description": "Claude AI booking automation agent for Cahuita's Taste cooking classes",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "setup-notion": "node scripts/setup_notion.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.20.0",
+    "@notionhq/client": "^2.2.14",
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "googleapis": "^133.0.0",
+    "handlebars": "^4.7.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

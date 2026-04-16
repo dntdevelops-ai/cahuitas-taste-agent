@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>You're Confirmed — Cahuita's Taste</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap');
+    body { margin:0; padding:0; background:#f5f0e8; font-family:'Lato',sans-serif; color:#2c2c2c; }
+    .wrapper { max-width:620px; margin:0 auto; background:#fff; }
+    /* Header */
+    .header { background:#1A4D2E; padding:36px 40px 28px; text-align:center; }
+    .header h1 { font-family:'Playfair Display',serif; color:#C68B2F; font-size:28px; margin:0 0 4px; letter-spacing:1px; }
+    .header p  { color:#a8d5b5; font-size:13px; margin:0; letter-spacing:2px; text-transform:uppercase; }
+    /* Hero band */
+    .hero { background:#C68B2F; padding:18px 40px; text-align:center; }
+    .hero h2 { font-family:'Playfair Display',serif; color:#fff; font-size:22px; margin:0; }
+    /* Body */
+    .body  { padding:36px 40px; }
+    .greeting { font-size:17px; font-weight:700; margin-bottom:8px; color:#1A4D2E; }
+    .intro { font-size:15px; line-height:1.7; color:#444; margin-bottom:28px; }
+    /* Detail card */
+    .card { background:#f9f5ec; border-left:4px solid #C68B2F; border-radius:6px; padding:20px 24px; margin-bottom:28px; }
+    .card-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid #e8e0d0; font-size:14px; }
+    .card-row:last-child { border-bottom:none; }
+    .card-row .label { color:#888; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:.5px; }
+    .card-row .value { color:#1A4D2E; font-weight:700; }
+    /* Payment box */
+    .payment-box { background:#1A4D2E; border-radius:8px; padding:20px 24px; margin-bottom:28px; color:#fff; }
+    .payment-box h3 { font-family:'Playfair Display',serif; color:#C68B2F; font-size:16px; margin:0 0 12px; }
+    .payment-row { display:flex; justify-content:space-between; font-size:14px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.15); }
+    .payment-row:last-child { border-bottom:none; }
+    .payment-row .plabel { color:#a8d5b5; }
+    .payment-row .pvalue { color:#fff; font-weight:700; }
+    .balance-due { color:#C68B2F !important; font-size:16px !important; }
+    /* Action buttons */
+    .btn-row { text-align:center; margin-bottom:28px; }
+    .btn { display:inline-block; padding:13px 28px; border-radius:50px; font-weight:700; font-size:14px; text-decoration:none; margin:6px; letter-spacing:.5px; }
+    .btn-primary { background:#C68B2F; color:#fff; }
+    .btn-secondary { background:#1A4D2E; color:#fff; }
+    .btn-outline { background:transparent; border:2px solid #1A4D2E; color:#1A4D2E; }
+    /* Section divider */
+    .divider { border:none; border-top:2px solid #f0e8d8; margin:28px 0; }
+    /* Info section */
+    .info-title { font-family:'Playfair Display',serif; font-size:16px; color:#1A4D2E; margin-bottom:10px; }
+    .info-text  { font-size:14px; line-height:1.7; color:#555; margin-bottom:20px; }
+    /* Policy */
+    .policy { background:#fff8ee; border:1px solid #e8d9b8; border-radius:6px; padding:16px 20px; font-size:13px; color:#666; line-height:1.6; margin-bottom:28px; }
+    .policy strong { color:#C68B2F; }
+    /* Footer */
+    .footer { background:#1A4D2E; padding:28px 40px; text-align:center; }
+    .footer p  { color:#a8d5b5; font-size:12px; margin:4px 0; }
+    .footer a  { color:#C68B2F; text-decoration:none; }
+    .tagline   { font-family:'Playfair Display',serif; font-style:italic; color:#C68B2F; font-size:14px; margin-top:12px !important; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Cahuita's Taste</h1>
+    <p>Soul Food Restaurant · Cahuita, Limón, Costa Rica</p>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h2>🌴 You're Confirmed, {{firstName}}!</h2>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+
+    <p class="greeting">Welcome to the Caribbean table!</p>
+    <p class="intro">
+      We are so excited to have you join us for an authentic Caribbean Cooking Class with Chef Doria.
+      Get ready to cook with real soul, real flavors, and real stories from the coast of Limón.
+      Here are your booking details:
+    </p>
+
+    <!-- Booking Details Card -->
+    <div class="card">
+      <div class="card-row">
+        <span class="label">📅 Class Date</span>
+        <span class="value">{{classDate}}</span>
+      </div>
+      <div class="card-row">
+        <span class="label">⏰ Time</span>
+        <span class="value">{{classTime}}</span>
+      </div>
+      <div class="card-row">
+        <span class="label">👥 Guests</span>
+        <span class="value">{{headcount}} {{#if (eq headcount 1)}}person{{else}}people{{/if}}</span>
+      </div>
+      <div class="card-row">
+        <span class="label">📍 Location</span>
+        <span class="value">Cahuita's Taste Outdoor Kitchen</span>
+      </div>
+      <div class="card-row">
+        <span class="label">👩‍🍳 Chef</span>
+        <span class="value">Chef Doria Sequeira Sellers</span>
+      </div>
+    </div>
+
+    <!-- Payment Summary -->
+    <div class="payment-box">
+      <h3>💰 Payment Summary</h3>
+      <div class="payment-row">
+        <span class="plabel">Total Booking Value</span>
+        <span class="pvalue">${{totalAmount}} USD</span>
+      </div>
+      {{#if isDeposit}}
+      <div class="payment-row">
+        <span class="plabel">Deposit Invoiced (50%)</span>
+        <span class="pvalue balance-due">${{invoiceAmount}} USD — Due Now</span>
+      </div>
+      <div class="payment-row">
+        <span class="plabel">Remaining Balance (50%)</span>
+        <span class="pvalue">${{balanceDue}} USD — Due {{balanceDueDate}}</span>
+      </div>
+      {{else}}
+      <div class="payment-row">
+        <span class="plabel">Amount Invoiced</span>
+        <span class="pvalue balance-due">${{invoiceAmount}} USD — Full Payment</span>
+      </div>
+      {{/if}}
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="btn-row">
+      <a href="{{menuLink}}" class="btn btn-primary">🍽️ View & Select Your Menu</a>
+      <a href="{{directionsLink}}" class="btn btn-secondary">📍 Get Directions</a>
+      <a href="{{youtubeLink}}" class="btn btn-outline">▶️ Watch a Class Preview</a>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- What to Expect -->
+    <p class="info-title">🌺 What to Expect</p>
+    <p class="info-text">
+      Your cooking class takes place in Chef Doria's open-air outdoor kitchen, nestled in the lush Caribbean greenery of Cahuita.
+      You'll learn to cook authentic Limonense dishes from scratch — from seasoning to plating — and then sit down and enjoy everything you made together.
+      A tasting of Cahuita Reserve Cider is included with your experience.
+    </p>
+
+    <!-- Menu Selection Reminder -->
+    <p class="info-title">🍽️ Choose Your Menu</p>
+    <p class="info-text">
+      Please visit the link below to review the class menu and select your main entrée. 
+      Menu selections must be submitted at least <strong>5 days before your class</strong>.
+      <br/><br/>
+      <a href="{{menuLink}}" style="color:#C68B2F; font-weight:700;">👉 View the Menu Here</a>
+    </p>
+
+    <!-- Directions -->
+    <p class="info-title">📍 Finding Us</p>
+    <p class="info-text">
+      We are located in Cahuita, Limón, Costa Rica. Tap the directions link below to open Google Maps.
+      If you have any trouble finding us, don't hesitate to reach out on WhatsApp — we'll guide you in!
+      <br/><br/>
+      <a href="{{directionsLink}}" style="color:#C68B2F; font-weight:700;">👉 Open Directions in Google Maps</a>
+    </p>
+
+    <!-- Cancellation Policy -->
+    <div class="policy">
+      <strong>📋 Booking Policy:</strong> Your PayPal invoice has been sent separately. 
+      {{#if isDeposit}}The 50% deposit confirms your booking. The remaining balance is due 3 days before your class.{{/if}}
+      Deposits are non-refundable. Cancellations less than 72 hours before the experience forfeit total payment.
+      Menu adjustments can be requested up to 5 days before the event.
+    </div>
+
+    <!-- Contact -->
+    <p class="info-title">📲 Questions? We're Here!</p>
+    <p class="info-text">
+      WhatsApp: <a href="https://wa.me/50684848107" style="color:#1A4D2E; font-weight:700;">+506 8484 8107</a><br/>
+      Email: <a href="mailto:experiencecahuitastaste@gmail.com" style="color:#1A4D2E; font-weight:700;">experiencecahuitastaste@gmail.com</a><br/>
+      Website: <a href="https://www.cahuitastaste.com" style="color:#1A4D2E; font-weight:700;">www.cahuitastaste.com</a>
+    </p>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Cahuita's Taste Soul Food Restaurant</p>
+    <p>Cahuita, Limón, Costa Rica</p>
+    <p><a href="https://www.cahuitastaste.com">www.cahuitastaste.com</a> · <a href="https://wa.me/50684848107">WhatsApp +506 8484 8107</a></p>
+    <p class="tagline">"El sabor del caribe en un bocado."</p>
+  </div>
+
+</div>
+</body>
+</html>

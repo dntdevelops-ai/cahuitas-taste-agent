@@ -80,7 +80,7 @@ function parseCalendlyPayload(payload) {
     email:      invitee.email || payload.email || '',
     phone:      answers.phone     || invitee.phone_number || '',
     headcount:  answers.headcount || 1,
-    classDate:  event.start_time  || new Date().toISOString(),
+    classDate:  event.start_time || event.start_time_pretty || payload.scheduled_event?.start_time || new Date().toISOString(),
     classEnd:   event.end_time    || '',
     timezone:   invitee.timezone  || 'America/Costa_Rica',
     eventName:  event.name        || 'Caribbean Cooking Class',

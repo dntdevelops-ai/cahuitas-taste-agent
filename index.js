@@ -62,8 +62,9 @@ app.post('/webhook/calendly', async (req, res) => {
 
 // ── Parse Calendly Payload ────────────────────────────────────────────────────
 function parseCalendlyPayload(payload) {
-  const invitee = payload.invitee || {};
-  const event   = payload.event   || {};
+  // Handle both test format and real Calendly webhook format
+  const invitee = payload.invitee || payload.invitees?.[0] || {};
+  const event   = payload.event || payload.scheduled_event || {};
 
   // Extract custom questions answered during booking (name, phone, headcount)
   const answers = {};
@@ -75,8 +76,8 @@ function parseCalendlyPayload(payload) {
   });
 
   return {
-    name:       answers.name      || invitee.name      || 'Guest',
-    email:      invitee.email     || '',
+    name:       answers.name || invitee.name || payload.name || 'Guest',
+    email:      invitee.email || payload.email || '',
     phone:      answers.phone     || invitee.phone_number || '',
     headcount:  answers.headcount || 1,
     classDate:  event.start_time  || new Date().toISOString(),
